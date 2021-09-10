@@ -1,5 +1,6 @@
 import React from 'react'
 
+<<<<<<< HEAD
 const AddTodoForm = (props) => {
 
     const handleAddTodo = (event) => {
@@ -16,8 +17,22 @@ const AddTodoForm = (props) => {
                 <input id="todoTitle" type="text" name="title" />
                 <button type="submit">Add</button>
             </form>
+=======
+const AddTodoForm = () => {
+    return (
+        <div>
+        <form>
+            <label htmlFor="todoTitle" >Title: </label>
+            <input id="todoTitle" type="text"/>
+            <button>Add</button>
+        </form>
+>>>>>>> main
         </div>
     )
 }
 
+<<<<<<< HEAD
 export default AddTodoForm
+=======
+export default AddTodoForm
+>>>>>>> main
