@@ -1,22 +1,25 @@
 import React from 'react'
 
-const InputWithLabel = ({todoTitle, type="text", isFocused, handleTitleChange, children }) => {
+const InputWithLabel = ({ todoTitle, type = "text", handleTitleChange, children, hasFocus}) => {
 
-    const inputRef = React.useRef(null);
 
+    const inputRef = React.useRef();
     React.useEffect(() => {
-        inputRef.current.focus();
-    });
+        if (hasFocus && inputRef.current) {
+            inputRef.current.focus();
+        }
+    }, [hasFocus])
 
     return (
         <>
             <label htmlFor="todoTitle" >{children}</label>
             <input
-            type={type}
-            value={todoTitle}
-            onChange={handleTitleChange}
-            ref={inputRef}
-            /> 
+                ref={inputRef}
+                type={type}
+                value={todoTitle}
+                onChange={handleTitleChange}
+                placeholder="Add Task"
+            />
         </>
     )
 }
