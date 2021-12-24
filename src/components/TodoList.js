@@ -1,8 +1,9 @@
 import TodoListItem from './TodoListItem';
+import PropTypes from "prop-types";
 
 const TodoList = ({ todoList, onRemoveTodo, onDoneTask, onRemoveAll }) => {
-    if(todoList.length === 0) {
-        return (<h1>List is empty</h1>)
+    if (todoList.length === 0) {
+        return (<h3>List is empty</h3>)
     } else {
         return (
             <main className='container'>
@@ -13,10 +14,16 @@ const TodoList = ({ todoList, onRemoveTodo, onDoneTask, onRemoveAll }) => {
                         })
                     }
                 </ul>
-                <button onClick={() => onRemoveAll(todoList)}>REMOVE ALL</button>
+                <button onClick={() => onRemoveAll(todoList)}>REMOVE ALL</button> 
             </main>
         )
     }
+}
+TodoList.propTypes = {
+    todoList: PropTypes.array,
+    onRemoveTodo: PropTypes.func,
+    onDoneTask: PropTypes.func,
+    onRemoveAll: PropTypes.func
 }
 
 export default TodoList
